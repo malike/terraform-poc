@@ -1,0 +1,1 @@
+# Setting up Simple Server on GCP and AWS with Terraform
