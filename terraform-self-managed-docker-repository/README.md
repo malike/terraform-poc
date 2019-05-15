@@ -1,1 +1,0 @@
-# Setting up A Self Managed Docker Repository with Terraform for CI/CD

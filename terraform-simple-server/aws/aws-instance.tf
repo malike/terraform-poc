@@ -77,7 +77,6 @@ resource "aws_route_table_association" "rta-subnet2" {
 }
 
 # SECURITY GROUPS #
-# Nginx security group 
 resource "aws_security_group" "nginx-sg" {
   name        = "nginx_sg"
   vpc_id      = "${aws_vpc.vpc.id}"
@@ -108,7 +107,7 @@ resource "aws_security_group" "nginx-sg" {
 }
 
 # INSTANCES #
-resource "aws_instance" "nginx1" {
+resource "aws_instance" "nginx" {
   ami           = "ami-c58c1dd3"
   instance_type = "t2.micro"
   subnet_id     = "${aws_subnet.subnet1.id}"
@@ -116,7 +115,7 @@ resource "aws_instance" "nginx1" {
   key_name        = "${var.key_name}"
 
   connection {
-    user        = "ec2-user"
+    user        = "${var.key_name}"
     private_key = "${file(var.private_key_path)}"
   }
 
